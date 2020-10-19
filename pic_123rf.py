@@ -52,7 +52,7 @@ def get_pic(keyword):
 
 
 if __name__ == '__main__':
-    data_path = r"D:/车祸图片/123rf/"
+    data_path = r"D:/"
     keyword_list = ["traffic crashes"]  # "车祸", "车辆碰撞", "交通事故", "撞车", "上海车祸", "高速公路车祸","car accident","car crash","traffic crashes", "traffic collision","road accidents"
     # for i in keyword_list:
     #     get_pic(i)

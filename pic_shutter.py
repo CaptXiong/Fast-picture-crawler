@@ -53,10 +53,8 @@ def get_pic(keyword):
 
 
 if __name__ == '__main__':
-    keyword = "车祸"
-    data_path = r"D:/车祸图片/shutter/"
-    keyword_list = ["车祸"]  # "车祸", "车辆碰撞", "交通事故", "撞车", "上海车祸", "高速公路车祸","car accident","car crash","traffic crashes", "traffic collision","road accidents"
-    # for i in keyword_list:
-    #     get_pic(i)
+    keyword = "jojo"
+    data_path = r"D:/"
+    keyword_list = ["jojo"]
     for keyword in keyword_list:
         multi_download.main(data_path, keyword)

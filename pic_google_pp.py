@@ -200,10 +200,10 @@ def main(task_count, keyword, data_path):
 
 if __name__ == '__main__':
     # 设置并发数量
-    keyword = ["冰雹"] #  "车祸", "车辆碰撞", "交通事故", "撞车", "上海车祸", "高速公路车祸","car accident","car crash","traffic crashes", "traffic collision","road accidents"
+    keyword = ["jojo"]
     task_count = 1
     # loop = asyncio.get_event_loop()
-    data_path = f"D:/车祸图片/google/"
+    data_path = f"D:/"
     for i in keyword:
         main(task_count, i, data_path)
         # down_load(dir_path, i)

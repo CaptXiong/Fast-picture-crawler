@@ -7,7 +7,6 @@ import traceback
 from urllib.parse import unquote
 from lxml import etree
 from copyheaders import headers_raw_to_dict
-from proxy import get_proxies_out
 
 
 def get_bing_pic(keyword, data_path):
@@ -45,10 +44,9 @@ def get_bing_pic(keyword, data_path):
     undownload_url_set = set()
     number = 1
     for url in url_list:
-        proxies = get_proxies_out()
         print(f'第{number}个网址必应爬取, 共有{len(pic_url_set)}张图,{datetime.datetime.now()}')
         try:
-            web_data = requests.get(url, headers=headers, proxies=proxies, verify=False, timeout=(5, 5)).text
+            web_data = requests.get(url, headers=headers, verify=False, timeout=(5, 5)).text
         except Exception as e:
             print(e, '访问出错')
             undownload_url_set.add(url)
@@ -68,7 +66,6 @@ def get_bing_pic(keyword, data_path):
         print(f'开始补完计划，第{number}个网址必应爬取, 共有{len(pic_url_set)}张图,{datetime.datetime.now()}')
         try:
             url = undownload_url_set.pop()
-            proxies = get_proxies_out()
             web_data = requests.get(url, headers=headers, proxies=proxies, verify=False, timeout=(5, 5)).text
         except Exception as e:
             print(e, '访问出错')
@@ -107,9 +104,9 @@ def down_load(dir_path, keyword):
 
 
 if __name__ == '__main__':
-    keyword = "车祸"
-    keyword_list = ["车辆碰撞"]  # "车辆碰撞","上海车祸","高速公路车祸","上海车祸"
-    dir_path = r"D:/车祸图片/bing/"
+    keyword = "jojo"
+    keyword_list = ["jojo"]
+    dir_path = r"D:/"
     for keyword in keyword_list:
         print(keyword)
         get_bing_pic(keyword, dir_path)

@@ -60,9 +60,9 @@ def down_load(dir_path, keyword_list):
             num += 1
 
 if __name__ == '__main__':
-    keyword = "车祸"
-    data_path = r"D:/车祸图片/sogou/"
-    keyword_list = ["上海车祸", "高速公路车祸"]  # ["车祸", "车辆碰撞", "交通事故", "撞车"]
+    keyword = "jojo"
+    data_path = r"D:/"
+    keyword_list = ["jojo"]
     for i in keyword_list:
         get_sogou_pic(i, data_path)
     # down_load(data_path, keyword_list)

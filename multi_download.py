@@ -4,7 +4,6 @@ import os, datetime
 import math, time, random
 from multiprocessing import Pool, Process
 from copyheaders import headers_raw_to_dict
-from proxy import get_proxies_out
 
 
 to_headers = b"""
@@ -95,8 +94,6 @@ def multi_start(dir_path, image_set, keyword):
 
 
 def main(data_path, keyword):
-
-    # r"D:/车祸图片/baidu/",r"D:/车祸图片/360/",r"D:/车祸图片/bing/", r"D:/车祸图片/360/"
     try:
         path = data_path + keyword + "/"
         if not os.path.exists(path):
@@ -109,8 +106,8 @@ def main(data_path, keyword):
 
 
 if __name__ == '__main__':
-    data_path = r"D:/车祸图片/新关键词/"
+    data_path = r"D:/"
 
-    main(data_path, keyword="冰雹")
+    main(data_path, keyword="jojo")
 
 

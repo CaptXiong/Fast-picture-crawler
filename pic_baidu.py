@@ -217,10 +217,9 @@ def down_load(dir_path, keyword):
 
 if __name__ == '__main__':
     # 设置并发数量
-    keyword = "车祸"
-    keyword_list = ["撞车", "上海车祸", "高速公路车祸"]  # "车祸", "车辆碰撞","交通事故",
-    # keyword_list = ["车祸"]
-    data_path = r"D:/车祸图片/baidu/"
+    keyword = "jojo"
+    keyword_list = ["jojo"]
+    data_path = r"D:/"
     num = 81
     task_count = 1
     for keyword in keyword_list:

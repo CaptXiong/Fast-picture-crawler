@@ -36,9 +36,9 @@ def start_main(keyword, data_path):
 
 
 if __name__ == '__main__':
-    keyword_list = ['高速公路裂缝','高速公路落石','高速公路滑坡','高速公路泥石流']  # '公交车车祸','汽车车祸','客车车祸','轿车车祸','货车车祸','卡车车祸','自行车车祸','摩托车车祸','高速公路车祸','追尾','交通事故','隧道烟雾','公交车起火','汽车起火','客车起火','轿车起火','货车起火','卡车起火','自行车起火','摩托车起火','路面积水','路面结冰','路面积雪','路面大雾','路面坑槽','路面裂缝','路面落石','路面滑坡','路面泥石流','高速公路积水','高速公路结冰','高速公路积雪','高速公路大雾','高速公路坑槽',
-    # keyword_list = ['路面破损']
-    data_path = r"D:/车祸图片/新关键词2/"
+    keyword_list = ['jojo']
+
+    data_path = r"D:/joestar/"
     for keyword in keyword_list:
         pp_main(1, keyword, data_path)
         start_main(keyword, data_path)

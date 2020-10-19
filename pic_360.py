@@ -5,7 +5,6 @@ import random, traceback
 import os
 from lxml import etree
 from copyheaders import headers_raw_to_dict
-from proxy import get_proxies_out
 
 
 def get_360_pic(keyword, data_path):
@@ -16,7 +15,6 @@ def get_360_pic(keyword, data_path):
         user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36
         """
     headers = headers_raw_to_dict(to_headers)
-    proxies = get_proxies_out()
     pic_url_set = set()
     first_url_list = [f"http://image.so.com/i?q={keyword}&src=srp&zoom={zoom_type}" for zoom_type in range(1, 4)]
     white_url_list = [url + "&color=white" for url in first_url_list]
@@ -46,7 +44,7 @@ def get_360_pic(keyword, data_path):
         url_list = url_list + white_url +black_url
         def url_process(url, proxies):
             url_set = set()
-            web_data = requests.get(url, headers=headers).text  # , proxies=proxies
+            web_data = requests.get(url, headers=headers).text
             if "您的电脑或所在局域网络对本站有异常访问" in web_data:
                 raise InterruptedError("访问异常")
             datas = json.loads(web_data)
@@ -54,17 +52,15 @@ def get_360_pic(keyword, data_path):
                 url_set.add(data["img"])
             return url_set
         for url in url_list:
-            proxies = get_proxies_out()
             try:
-                pic_url_set = pic_url_set | url_process(url, proxies)
+                pic_url_set = pic_url_set | url_process(url)
             except InterruptedError:
                 print("您的电脑或所在局域网络对本站有异常访问")
-                proxies = get_proxies_out()
-                pic_url_set = pic_url_set | url_process(url, proxies)
+
+                pic_url_set = pic_url_set | url_process(url)
             except TimeoutError:
                 print('换代理ip')
-                proxies = get_proxies_out()
-                pic_url_set = pic_url_set | url_process(url, proxies)
+                pic_url_set = pic_url_set | url_process(url)
             except Exception as e:
                 traceback.print_exc()
             time.sleep(random.randint(20, 25)/10)
@@ -74,9 +70,9 @@ def get_360_pic(keyword, data_path):
 
 
 if __name__ == "__main__":
-    keyword = "车祸"
-    data_path = r"D:/车祸图片/360/"
-    keyword_list = ["高速公路车祸"]  # "车辆碰撞","交通事故",,"撞车", "上海车祸", "高速公路车祸"
+    keyword = "jojo"
+    data_path = r"D:/"
+    keyword_list = ["jojo"]  # "车辆碰撞","交通事故",,"撞车", "上海车祸", "高速公路车祸"
     for keyword in keyword_list:
         print(keyword)
         get_360_pic(keyword, data_path)

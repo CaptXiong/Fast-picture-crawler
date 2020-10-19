@@ -44,5 +44,5 @@ def get_pic(keyword):
 
 
 if __name__ == '__main__':
-    keyword = "汽车"
+    keyword = "jojo"
     get_pic(keyword)
