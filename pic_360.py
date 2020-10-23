@@ -72,7 +72,7 @@ def get_360_pic(keyword, data_path):
 if __name__ == "__main__":
     keyword = "jojo"
     data_path = r"D:/"
-    keyword_list = ["jojo"]  # "车辆碰撞","交通事故",,"撞车", "上海车祸", "高速公路车祸"
+    keyword_list = ["jojo"]
     for keyword in keyword_list:
         print(keyword)
         get_360_pic(keyword, data_path)
